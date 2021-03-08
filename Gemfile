@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'faker'
+gem 'faker', '~> 2.16.0'
 gem 'bootstrap', '~> 4.0.0.beta'
 gem 'jquery-rails'
 
