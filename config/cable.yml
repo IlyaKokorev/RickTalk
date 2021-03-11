@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV["REDIS_PATH"] %>
+  url: <%= ENV["REDISTOGO_URL"] %>
   channel_prefix: ricktalk_production
