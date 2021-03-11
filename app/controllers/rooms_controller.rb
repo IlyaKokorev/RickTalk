@@ -1,28 +1,25 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show]
-  before_action :set_users, only: [:show, :index]
 
   def index
     @rooms = Room.all
     @room = Room.new
+    @users_online = User.online
   end
 
   def show
+    @users_online = User.online
   end
 
   def create
     @room = Room.create!
 
-    redirect_to @room, notice: 'Portal was successfully created.'
+    redirect_to @room, notice: 'Room was successfully created.'
   end
 
   private
 
   def set_room
     @room = Room.find_by(token: params[:token])
-  end
-
-  def set_users
-    @users = User.online_now
   end
 end

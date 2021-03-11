@@ -9,26 +9,29 @@
 </head>
 
 <body style="background: url(https://wallpaperscave.ru/images/original/18/01-14/tv-series-rick-and-morty-9967.jpg)" class="page-holder bg-cover ">
-  <div class="container">
-    <div class="row justify-content-md-center">
-      <div class="col-md-8">
-        <div class="card text-center mt-4 mb-4">
-          <div class="card-body">
-            Welcome to RickTalk, <b><%= current_user.nickname %></b>!
-          </div>
-
-          <div class="card-body">
-            <%= Faker::TvShows::RickAndMorty.quote %>
-          </div>
-
-          <div class="card-body">
-            <%= render partial: 'users/user', collection: @users %>
-          </div>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-8">
+      <div class="card text-center mt-4 mb-4">
+        <div class="card-body">
+          Welcome to RickTalk, <b><%= current_user.nickname %></b>!
         </div>
 
-        <%= yield %>
+        <div class="card-body">
+          <%= Faker::TvShows::RickAndMorty.quote %>
+        </div>
+
+        <div class="card-body">
+          Online now:
+            <div id="online">
+              <%= render partial: 'users/online_users', locals: { users: @users_online } %>
+            </div>
+        </div>
       </div>
+
+      <%= yield %>
     </div>
   </div>
+</div>
 </body>
 </html>
